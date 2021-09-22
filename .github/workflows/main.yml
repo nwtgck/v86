@@ -22,7 +22,7 @@ jobs:
         key: ${{ runner.os }}-rustup
     - name: rustup
       run: |
-        rustup toolchain install stable
+        rustup toolchain install 1.53.0
         rustup target add wasm32-unknown-unknown
         rustup component add rustfmt
 
