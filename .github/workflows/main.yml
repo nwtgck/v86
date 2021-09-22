@@ -22,8 +22,8 @@ jobs:
         key: ${{ runner.os }}-rustup
     - name: rustup
       run: |
-        rustup toolchain install stable
-        rustup target add wasm32-unknown-unknown
+        rustup toolchain install 1.53.0
+        rustup target add --toolchain 1.53.0 wasm32-unknown-unknown
         rustup component add rustfmt
 
     - name: apt install
@@ -77,7 +77,7 @@ jobs:
       run: make qemutests-release
     - name: jitpagingtests
       run: make jitpagingtests
-    - name: integration tests
-      run: MAX_PARALLEL_TESTS=1 make tests
+#     - name: integration tests
+#       run: MAX_PARALLEL_TESTS=1 make tests
     - name: expect tests
       run: make expect-tests
